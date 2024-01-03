@@ -43,7 +43,7 @@ EXPOSE 80
 CMD ["/bin/sh", "start.sh"]
 
 # node 服务
-FROM node:10.15
+FROM node:16.12.0
 COPY . /node/
 WORKDIR /node
 RUN npm install

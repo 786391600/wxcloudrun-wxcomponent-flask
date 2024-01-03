@@ -7,6 +7,7 @@
 const Koa = require('koa');
 const app = new Koa();
 
+console.log('node 服务==============')
 app.use(async ctx => {
   ctx.body = 'Hello World';
 });

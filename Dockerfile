@@ -44,7 +44,7 @@ CMD ["/bin/sh", "start.sh"]
 
 # node 服务
 FROM node:16.12.0
-COPY . /node/
+COPY ./node /node/
 WORKDIR /node
 RUN npm install
 RUN npm install pm2 -g

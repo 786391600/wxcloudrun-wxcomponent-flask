@@ -41,3 +41,13 @@ EXPOSE 80
 
 # 设定启动命令
 CMD ["/bin/sh", "start.sh"]
+
+# node 服务
+FROM node:10.15
+COPY . /node/
+WORKDIR /node
+RUN npm install
+RUN npm install pm2 -g
+EXPOSE 8003
+CMD ["pm2-runtime", "index.js"]
+

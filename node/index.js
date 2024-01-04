@@ -2,7 +2,7 @@
  * @Author: Wangtao
  * @Date: 2024-01-03 18:40:08
  * @LastEditors: Wangtao
- * @LastEditTime: 2024-01-04 18:40:53
+ * @LastEditTime: 2024-01-04 20:46:59
  */
 const Koa = require('koa');
 const app = new Koa();
@@ -12,4 +12,4 @@ app.use(async ctx => {
   ctx.body = 'Hello World';
 });
 
-app.listen(8003);
+app.listen(3000);

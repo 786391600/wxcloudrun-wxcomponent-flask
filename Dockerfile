@@ -49,7 +49,7 @@ COPY ./node /node
 WORKDIR /node
 RUN npm install
 RUN npm install pm2 -g
-EXPOSE 8003
+EXPOSE 3000
 
 CMD ["pm2-runtime", "start", "index.js"]
 

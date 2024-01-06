@@ -38,6 +38,13 @@ RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
 
 # 设定对外端口
 EXPOSE 80
+
+# node 服务
+COPY ./node /node
+WORKDIR /node
+RUN npm install
+RUN npm install pm2 -g
+
 CMD ["/bin/sh", "start.sh"]
 # CMD ["python3", "run.py", "0.0.0.0", "80"]
 

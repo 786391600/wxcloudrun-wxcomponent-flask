@@ -43,17 +43,5 @@ CMD ["/bin/sh", "start.sh"]
 
 # 设定启动命令
 
-# node 服务
-FROM node:16.12.0
-COPY ./node /node
-WORKDIR /node
-RUN npm install
-RUN npm install pm2 -g
-EXPOSE 3000
-
-CMD ["pm2-runtime", "start", "index.js"]
-
-# CMD ["/bin/sh", "start.sh"]
-
 
 

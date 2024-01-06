@@ -1,6 +1,13 @@
 # 写在最前面：强烈建议先阅读官方教程[Dockerfile最佳实践]（https://docs.docker.com/develop/develop-images/dockerfile_best-practices/）
 # 选择构建用基础镜像（选择原则：在包含所有用到的依赖前提下尽可能提及小）。如需更换，请到[dockerhub官方仓库](https://hub.docker.com/_/python?tab=tags)自行选择后替换。
 
+# node 服务
+FROM node:16.14.0 as nodeBuilder
+COPY ./node /node
+WORKDIR /node
+RUN npm install
+RUN npm install pm2 -g
+
 FROM ccr.ccs.tencentyun.com/weixincloud/weixincloud_wxcomponent:latest as wxcomponent
 
 # 选择基础镜像
@@ -39,13 +46,6 @@ RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
 # 设定对外端口
 EXPOSE 80
 
-
-# node 服务
-FROM node:16.14.0 as nodeBuilder
-COPY ./node /node
-WORKDIR /node
-RUN npm install
-RUN npm install pm2 -g
 
 CMD ["/bin/sh", "start.sh"]
 # CMD ["python3", "run.py", "0.0.0.0", "80"]

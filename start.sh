@@ -3,16 +3,17 @@
  # @Author: Wangtao
  # @Date: 2024-01-03 18:17:46
  # @LastEditors: Wangtao
- # @LastEditTime: 2024-01-06 16:52:46
+ # @LastEditTime: 2024-01-06 18:44:37
 ### 
 echo '进来了'
 python3 run.py 0.0.0.0 8080 &
 cd /wxcloudrun-wxcomponent
-./main
-
-
+./main & 
 cd /node
 pm2 start index.js
+
+echo 'node 服务也启动了=============='
+
 
 # start_server(){
 #   if check_port 8083

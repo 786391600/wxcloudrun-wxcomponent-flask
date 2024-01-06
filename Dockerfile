@@ -39,7 +39,9 @@ RUN pip config set global.index-url http://mirrors.cloud.tencent.com/pypi/simple
 # 设定对外端口
 EXPOSE 80
 
+
 # node 服务
+FROM node:16.14.0 as nodeBuilder
 COPY ./node /node
 WORKDIR /node
 RUN npm install

@@ -7,6 +7,7 @@ COPY ./node /node
 WORKDIR /node
 RUN npm install
 RUN npm install pm2 -g
+EXPOSE 3000
 
 FROM ccr.ccs.tencentyun.com/weixincloud/weixincloud_wxcomponent:latest as wxcomponent
 
